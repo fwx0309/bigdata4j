@@ -5,13 +5,13 @@ import org.junit.Test;
 import java.util.*;
 
 /**
- * [ Lambda 测试类，用 lambda 表达式简化代码 ]
+ * [ Lambda 测试类，用 lambda 表达式简化代码例子 ]
  *
  * @author : [fwx]
  * @version : [v1.0]
  * @createTime : [2022/5/8 18:11]
  */
-public class TestLambda {
+public class LambdaExampleTest {
 
     /**
      * 匿名内部类方式
@@ -40,11 +40,11 @@ public class TestLambda {
 
     // 测试的员工数据集合
     List<Employee> employees = Arrays.asList(
-            new Employee("张三", 18, 2000.0),
-            new Employee("李四", 28, 3000.0),
-            new Employee("王五", 38, 4000.0),
-            new Employee("赵六", 48, 5000.0),
-            new Employee("田七", 58, 6000.0)
+            new Employee("张三", 18, 2000.0D),
+            new Employee("李四", 28, 3000.0D),
+            new Employee("王五", 38, 4000.0D),
+            new Employee("赵六", 48, 5000.0D),
+            new Employee("田七", 58, 6000.0D)
     );
 
     /**
@@ -95,5 +95,22 @@ public class TestLambda {
         for (Employee employee : filterEmp) {
             System.out.println(employee);
         }
+    }
+
+    /**
+     * Lambda Stream 优化员工删选输出
+     */
+    @Test
+    public void test6(){
+        employees.stream()
+                .filter((x) -> x.getAge() >30)
+                .limit(2)
+                .forEach(System.out::println);
+        System.out.println("------------------------");
+
+        employees.stream()
+                .filter((x) -> x.getAge() < 40)
+                .map(Employee::getName)
+                .forEach(System.out::println);
     }
 }
