@@ -1,5 +1,6 @@
 package org.fwx.lambda;
 
+import org.fwx.lambda.data.TestDatas;
 import org.junit.Test;
 
 import java.util.*;
@@ -38,15 +39,6 @@ public class LambdaExampleTest {
         TreeSet<Integer> treeSet = new TreeSet<>(comparator);
     }
 
-    // 测试的员工数据集合
-    List<Employee> employees = Arrays.asList(
-            new Employee("张三", 18, 2000.0D),
-            new Employee("李四", 28, 3000.0D),
-            new Employee("王五", 38, 4000.0D),
-            new Employee("赵六", 48, 5000.0D),
-            new Employee("田七", 58, 6000.0D)
-    );
-
     /**
      * 使用策略模式过滤集合，返回结果
      * @param list
@@ -69,7 +61,7 @@ public class LambdaExampleTest {
      */
     @Test
     public void test3(){
-        List<Employee> filterEmp = filterEmpFun(this.employees, new FilterDataByAge());
+        List<Employee> filterEmp = filterEmpFun(TestDatas.employeeList, new FilterDataByAge());
         for (Employee employee : filterEmp) {
             System.out.println(employee);
         }
@@ -80,7 +72,7 @@ public class LambdaExampleTest {
      */
     @Test
     public void test4(){
-        List<Employee> filterEmp = filterEmpFun(this.employees, new FilterDataBySalary());
+        List<Employee> filterEmp = filterEmpFun(TestDatas.employeeList, new FilterDataBySalary());
         for (Employee employee : filterEmp) {
             System.out.println(employee);
         }
@@ -91,7 +83,7 @@ public class LambdaExampleTest {
      */
     @Test
     public void test5(){
-        List<Employee> filterEmp = filterEmpFun(this.employees, (emp) -> emp.getAge() >= 30);
+        List<Employee> filterEmp = filterEmpFun(TestDatas.employeeList, (emp) -> emp.getAge() >= 30);
         for (Employee employee : filterEmp) {
             System.out.println(employee);
         }
@@ -102,13 +94,13 @@ public class LambdaExampleTest {
      */
     @Test
     public void test6(){
-        employees.stream()
+        TestDatas.employeeList.stream()
                 .filter((x) -> x.getAge() >30)
                 .limit(2)
                 .forEach(System.out::println);
         System.out.println("------------------------");
 
-        employees.stream()
+        TestDatas.employeeList.stream()
                 .filter((x) -> x.getAge() < 40)
                 .map(Employee::getName)
                 .forEach(System.out::println);
