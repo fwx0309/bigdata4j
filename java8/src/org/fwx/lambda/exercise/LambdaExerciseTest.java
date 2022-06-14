@@ -1,13 +1,12 @@
 package org.fwx.lambda.exercise;
 
-import org.fwx.lambda.Employee;
+import org.fwx.lambda.bean.Employee;
 import org.fwx.lambda.data.FunctionInteface;
 import org.fwx.lambda.data.FunctionInteface1;
 import org.fwx.lambda.data.TestDatas;
 import org.junit.Test;
 
 import java.util.Collections;
-import java.util.Locale;
 
 /**
  * [ 关于 Lambda 的练习 ]

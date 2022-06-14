@@ -1,4 +1,4 @@
-package org.fwx.lambda;
+package org.fwx.lambda.lambdafunction;
 
 import org.junit.Test;
 

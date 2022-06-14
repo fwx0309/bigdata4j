@@ -1,5 +1,9 @@
-package org.fwx.lambda;
+package org.fwx.lambda.lambdafunction;
 
+import org.fwx.lambda.bean.Employee;
+import org.fwx.lambda.FilterData;
+import org.fwx.lambda.FilterDataByAge;
+import org.fwx.lambda.FilterDataBySalary;
 import org.fwx.lambda.data.TestDatas;
 import org.junit.Test;
 
@@ -45,7 +49,7 @@ public class LambdaExampleTest {
      * @param fun
      * @return
      */
-    public List<Employee> filterEmpFun(List<Employee> list,FilterData<Employee> fun){
+    public List<Employee> filterEmpFun(List<Employee> list, FilterData<Employee> fun){
         ArrayList<Employee> results = new ArrayList<>();
         // 过滤数据添加到返回的集合中
         for (Employee employee : list) {

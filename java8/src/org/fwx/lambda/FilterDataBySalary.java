@@ -1,5 +1,7 @@
 package org.fwx.lambda;
 
+import org.fwx.lambda.bean.Employee;
+
 /**
  * [ 根据工资过滤 Emp ]
  *

@@ -1,4 +1,4 @@
-package org.fwx.lambda;
+package org.fwx.lambda.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +18,9 @@ public class Employee {
     private String name;
     private int age;
     private double salary;
+
+    public Employee(String name,int age){
+        this.name = name;
+        this.age = age;
+    }
 }
