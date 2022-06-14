@@ -23,5 +23,11 @@ public class DaemonThread {
         daemon.start();
 
         System.out.println(Thread.currentThread().getName() + " over!");
+        // 5 秒后用户线程退出， daemon 守护线程也会自己退出
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
