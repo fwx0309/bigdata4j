@@ -41,6 +41,13 @@ public class StreamApiTest {
         Character[] chars = new Character[10];
         Arrays.stream(chars);
 
+        int[] intArr = new int[10];
+        Arrays.stream(intArr);
+
+        char[] charsArr = new char[10];
+        // char[] 转换不了
+        // Arrays.stream(charsArr);
+
         // 3.通过 Stream 类中静态方法 of()
         Stream<String> stream2 = Stream.of("aaa", "bbb", "ccc");
 
@@ -111,7 +118,7 @@ public class StreamApiTest {
      * 2.中间操作
      * 	  排序
      * 		sorted()——自然排序
-     * 		sorted(Comparator com)——定制排序
+     * 		sorted(Comparator com)——自定制排序
      */
     @Test
     public void test4(){
@@ -264,7 +271,7 @@ public class StreamApiTest {
         // System.out.println("collect7.getMax() = " + collect7.getMax());
         // System.out.println("collect7.getMin() = " + collect7.getMin());
 
-        // join
+        // join 把结果拼接起来
         // String collect8 = employeeList.stream().map(Employee::getName).collect(Collectors.joining(","));
         String collect8 = employeeList.stream().map(Employee::getName).collect(Collectors.joining(",","^","$"));
         //System.out.println("collect8 = " + collect8);

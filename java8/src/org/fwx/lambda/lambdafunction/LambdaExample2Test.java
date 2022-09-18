@@ -10,7 +10,10 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
- * [ Java8 内置的四大核心函数式接口 ]
+ * [
+ *  Java8 内置的四大核心函数式接口
+ *  其它内置内置函数接口在 java.util.function 下
+ * ]
  *
  * @author : [ fwx ]
  * @version : [ v1.0 ]

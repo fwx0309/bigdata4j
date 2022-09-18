@@ -43,6 +43,11 @@ public class LocalDateTimeTest {
         System.out.println("localDateTime.getMinute() = " + localDateTime.getMinute());
         System.out.println("localDateTime.getSecond() = " + localDateTime.getSecond());
         System.out.println("localDateTime.getNano() = " + localDateTime.getNano());
+        // localDateTime 转 时间戳
+        System.out.println("localDateTime.toEpochSecond(ZoneOffset.ofHours(8)) = " + localDateTime.toEpochSecond(ZoneOffset.ofHours(8)));
+        // 时间戳 转 localDateTime
+        LocalDateTime localDateTime2 = LocalDateTime.ofEpochSecond(1656226061L, 0, ZoneOffset.ofHours(8));
+        System.out.println("localDateTime2 = " + localDateTime2);
     }
 
     /**
@@ -78,19 +83,19 @@ public class LocalDateTimeTest {
     @Test
     public void test2() throws InterruptedException {
 
-        // Duration: Instant
+        // Duration(持续时间): Instant
         Instant i1 = Instant.now();
         Thread.sleep(1000);
         Instant i2 = Instant.now();
         System.out.println("Duration.between(i1,i2) = " + Duration.between(i1, i2).toMillis());
 
-        // Duration: LocalTime
+        // Duration(持续时间): LocalTime
         LocalTime l1 = LocalTime.now();
         Thread.sleep(1000);
         LocalTime l2 = LocalTime.now();
         System.out.println("Duration.between(l1,l2) = " + Duration.between(l1, l2).toMillis());
 
-        // Period
+        // Period 周期
         LocalDate d1 = LocalDate.of(2020,1,20);
         Thread.sleep(1000);
         LocalDate d2 = LocalDate.now();
