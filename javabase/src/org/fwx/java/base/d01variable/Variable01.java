@@ -36,6 +36,7 @@ public class Variable01 {
         float f1 = 10.1F;
         double d1 = 10.2;
         char c1 = 'a';
+        // *** Unicode 类型的 char
         char c2 = '\u0041';
         System.out.println("c2 = " + c2);
         char c3 = '\n';
