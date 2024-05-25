@@ -1,9 +1,9 @@
 package org.fwx.thread;
 
-public class ImplRunnableSyncFun {
+public class D05ImplRunnableSyncCode {
     public static void main(String[] args) {
 
-        MyThread3 myThread = new MyThread3();
+        MyThread2 myThread = new MyThread2();
 
         Thread t1 = new Thread(myThread);
         Thread t2 = new Thread(myThread);
@@ -15,7 +15,7 @@ public class ImplRunnableSyncFun {
     }
 }
 
-class MyThread3 implements Runnable{
+class MyThread2 implements Runnable{
 
     private int num = 100;
 
@@ -32,6 +32,8 @@ class MyThread3 implements Runnable{
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                } else {
+                    break;
                 }
             }
         }

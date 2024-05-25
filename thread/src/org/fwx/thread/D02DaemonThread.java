@@ -1,9 +1,9 @@
 package org.fwx.thread;
 
 /**
- * 守护线程：用户现场都结束后，jvm会退出。
+ * 守护线程：用户线程都结束后，jvm会退出。
  */
-public class DaemonThread {
+public class D02DaemonThread {
     public static void main(String[] args) {
         Thread daemon = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + ":" + Thread.currentThread().isDaemon());

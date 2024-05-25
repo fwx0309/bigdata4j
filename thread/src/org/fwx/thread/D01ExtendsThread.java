@@ -4,7 +4,7 @@ package org.fwx.thread;
  * 使用继承 Thread 实现多线
  * 在一个线程中 join 另外一个线程
  */
-public class ExtendsThread {
+public class D01ExtendsThread {
     public static void main(String[] args) {
 
         MyThread myThread = new MyThread();

@@ -1,6 +1,6 @@
 package org.fwx.thread;
 
-public class ImplRunnable {
+public class D03ImplRunnable {
     public static void main(String[] args) {
 
         MyThread1 myT1 = new MyThread1();
