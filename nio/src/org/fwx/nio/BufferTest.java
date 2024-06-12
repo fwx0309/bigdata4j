@@ -43,7 +43,7 @@ import java.nio.ByteBuffer;
  * @version : [ v1.0 ]
  * @createTime : [ 2022/6/20 11:12 ]
  */
-public class D01BufferTest {
+public class BufferTest {
 
     /**
      * allocate: 初始化 buffer
