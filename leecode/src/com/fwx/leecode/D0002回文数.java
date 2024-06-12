@@ -1,8 +1,6 @@
 package com.fwx.leecode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * [
@@ -30,7 +28,7 @@ import java.util.List;
  * @version : [ v1.0 ]
  * @createTime : [ 2022/11/17 11:17 ]
  */
-public class D02 {
+public class D0002回文数 {
     public static void main(String[] args) {
         System.out.println(isPalindrome1(-10022001));
     }

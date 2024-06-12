@@ -30,7 +30,7 @@ package com.fwx.leecode;
  * @version : [ v1.0 ]
  * @createTime : [ 2022/10/10 16:35 ]
  */
-public class D01 {
+public class D0001两数之和 {
     public static void main(String[] args) {
 //        int[] nums = new int[]{2, 7, 11, 15};
 //        int target = 9;
