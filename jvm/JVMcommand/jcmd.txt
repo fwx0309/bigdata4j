@@ -1,0 +1,95 @@
+1 基本知识
+jcmd 是在 JDK1.7 以后，新增了一个命令行工具。
+jcmd 是一个多功能的工具，相比 jstat 功能更为全面的工具，可用于获取目标 Java 进程的性能统计、JFR、内存使用、垃圾收集、线程堆栈、JVM 运行时间，也可以手动执行 GC、导出(能导出线程信息？)线程信息、堆信息等信息。
+
+示例：
+    jcmd pid help
+    jcmd pid command
+    ps:command参考下面的参数
+
+2 jcmd 用法
+2.1 查看进程 jcmd -l
+    作用：查看 当前机器上所有的 jvm 进程信息。
+    同类作用的命令：jcmd、 jcmd -l 、 jps -lm 这三个命令作用相同
+
+2.2、jps -lm
+    1255 org.tanukisoftware.wrapper.WrapperSimpleApp CloudResetPwdUpdateAgent
+    20399 /etc/java-app/springtest-0.0.1-SNAPSHOT.jar
+    5087 sun.tools.jps.Jps -lm
+
+2.3 列出当前运行的 java 进程可以执行的操作【常用】
+    命令：jcmd help
+    作用：列出当前运行的 java 进程可以执行的操作
+
+2.4 查看具体命令的选项
+    命令：jcmd help command
+    作用：列出当前运行的 java 进程可以执行的操作
+
+2.5 查看内存信息【常用】
+    命令：jcmd GC.heap_info
+    作用：查看JVM内存信息，虽然名称为heap_info，但是除了堆内存信息，也会有堆外内存之一的Metaspace的信息。相比jstat命令结果会更直观一些。
+
+2.6 查看性能统计信息
+    命令：jcmd PerfCounter.print
+    作用：查看指定进程的性能统计信息。
+
+2.7 VM.uptime
+    命令：jcmd VM.uptime
+    作用：查看 JVM 的已启动时长。
+
+2.8 GC.class_histogram【常用】
+    命令：jcmd GC.class_histogram
+    作用：查看系统中类统计信息。
+    同类作用的命令：和jmap -histo pid的效果是一样的，可以查看每个类的实例数量和占用空间大小。
+
+2.9 Thread.print
+    命令：jcmd Thread.print
+    作用：查看线程堆栈信息。
+
+    同类作用的命令：和jstack -l作用一样
+
+2.10 GC.heap_dump
+    命令：jcmd GC.heap_dump FILE_NAME
+    作用：查看 JVM 的Heap Dump。导出的 dump 文件，可以使用MAT 或者 Visual VM 等工具进行分析（如果只指定文件名，默认会生成在启动 JVM 的目录里）
+
+    同类作用的命令：和 jmap -dump:format=b,file=heapdump.phrof pid 作用一样
+
+2.11 VM.system_properties
+    命令：jcmd VM.system_properties
+    作用：查看 JVM 的属性信息。
+
+2.12 VM.flags
+    命令：jcmd VM.flags
+    作用：查看 JVM 的启动参数。
+
+    -XX:InitialHeapSize：初始堆大小。同-Xms
+    -XX:MaxHeapSize: 最大堆大小。 同-Xmx
+    -XX:MinHeapDeltaBytes: 表示当JVM决定是否要做或者尝试扩容的时候最小扩/缩多少，JDK1.8以下默认为192K，JDK1.8默认512K
+    -XX:newSize：表示新生代初始内存的大小
+    -XX:MaxNewSize：JVM堆区域新生代内存的最大可分配大小
+    -XX:OldSize:老生代的大小
+    -XX:+UseParallelGC：指 定在New Generation 使用 parallel collector垃圾收集器
+
+    -XX:CICompilerCount：最大并行编译数
+    -XX:+UseCompressedClassPointers：开启类指针压缩
+    -XX:+UseCompressedOops：开启普通对象指针压缩
+
+2.13 VM.command_line
+    命令：jcmd VM.command_line
+    作用：查看 JVM 的启动命令行。
+
+2.14 GC.run_finalization
+    命令：jcmd GC.run_finalization
+    作用： 对 JVM 执行 java.lang.System.runFinalization()。执行一次 finalization 操作，相当于执java.lang.System.runFinalization()。调用已经失去引用的对象的finalize方法，但是JVM可以选择执行或者不执行。
+
+2.15 GC.run
+    命令：jcmd GC.run
+    作用：对 JVM 执行 java.lang.System.gc()。同 GC.run_finalization 告诉垃圾收集器打算进行垃圾收集，但是JVM可以选择执行或者不执行。
+
+2.16 VM.version
+    命令：jcmd VM.version
+    作用：查看目标jvm进程的版本信息。
+
+2.17 VM.native_memory
+    命令：jcmd VM.native_memory
+    作用：查看目标jvm进程的Native Memory Tracking (NMT)信息，用于追踪JVM的内部内存使用。
