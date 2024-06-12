@@ -13,7 +13,6 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.Map;
 import java.util.Objects;
 import java.util.SortedMap;
 
@@ -60,7 +59,7 @@ import java.util.SortedMap;
  * @version : [ v1.0 ]
  * @createTime : [ 2022/7/3 21:33 ]
  */
-public class ChannelTest {
+public class D02ChannelTest {
 
     /**
      * 利用通道完成文件的复制（非直接缓冲区）

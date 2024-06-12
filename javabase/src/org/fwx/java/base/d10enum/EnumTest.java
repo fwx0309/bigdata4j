@@ -1,4 +1,4 @@
-package org.fwx.java.base.enumojb;
+package org.fwx.java.base.d10enum;
 
 /**
  * [ Enum 测试类 ]
