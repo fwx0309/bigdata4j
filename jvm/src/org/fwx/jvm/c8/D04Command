@@ -1,0 +1,8 @@
+cmd
+    1.jps 查看当前运行的进程
+
+    2.jstat -gc PID
+
+    3.具体查看某个参数的指令 :
+        jinfo -flag SurviverRatio PID （SurviverRatio 为 jvm 参数名）
+        jinfo -flag NewRatio 2508 （2508 为进程ID，）

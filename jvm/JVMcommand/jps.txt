@@ -1,0 +1,16 @@
+简介
+    jps全称为Java Virtual Machine Process Status Tool，是Java提供的一个查看当前用户有权访问的主机的Java进程情况的工具。
+    因为每一个Java程序都会独占一个Java虚拟机实例，所以，可以通过jps来查看服务器上究竟启动了几个java进程。
+    jps命令在jdk的JAVA_HOME/bin/目录下面。
+
+语法
+    jps [ options ] [ hostid ]
+    options是命令行参数，hostid指特定主机，可以是ip地址、域名, 也可以指定具体协议和端口。
+
+options参数说明
+    -q 只输出PID。
+    -m 输出传递给 main 方法的参数。对于嵌入式 JVM，输出可能为空。
+    -l 输出应用程序主类的完整包名或应用程序 JAR 文件的完整路径名。
+    -v 输出传递给 JVM 的参数。
+    -V 通过 flags 文件（.hotspotrc 文件或 -XX:Flags=< filename > 参数指定的文件）输出传递给 JVM 的参数。本参数不常用。
+    -Joption 将选项传递给jps调用的java启动器。例如，-J-Xms48m是将启动内存设置为 48 兆字节。
