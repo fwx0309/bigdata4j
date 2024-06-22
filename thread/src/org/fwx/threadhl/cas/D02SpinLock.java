@@ -12,21 +12,34 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class D02SpinLock
 {
+    /**
+     * 使用AtomicReference实现线程安全的锁机制。
+     * AtomicReference<Thread> atomicReference = new AtomicReference<>();
+     */
     AtomicReference<Thread> atomicReference = new AtomicReference<>();
 
+    /**
+     * 获取锁。
+     * 使用CAS操作尝试将当前线程设置为锁状态，直到成功获取锁才退出循环。
+     */
     public void lock() {
         Thread thread = Thread.currentThread();
-        System.out.println(Thread.currentThread().getName()+"\t"+"----come in");
+        System.out.println(Thread.currentThread().getName() + "\t" + "----come in");
         while (!atomicReference.compareAndSet(null, thread)) {
-
+            // CAS操作失败，循环尝试直到成功
         }
     }
 
+    /**
+     * 释放锁。
+     * 使用CAS操作将锁状态设置为空，表示锁被释放。
+     */
     public void unLock() {
         Thread thread = Thread.currentThread();
-        atomicReference.compareAndSet(thread,null);
-        System.out.println(Thread.currentThread().getName()+"\t"+"----task over,unLock...");
+        atomicReference.compareAndSet(thread, null);
+        System.out.println(Thread.currentThread().getName() + "\t" + "----task over, unLock...");
     }
+
 
     public static void main(String[] args) {
         D02SpinLock spinLockDemo = new D02SpinLock();
