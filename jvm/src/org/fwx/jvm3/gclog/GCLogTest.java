@@ -17,7 +17,7 @@ public class GCLogTest {
             byte[] arr = new byte[1024 * 50];//50KB
             list.add(arr);
             try {
-                Thread.sleep(30);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
